@@ -1,0 +1,8 @@
+{
+  "label": "👷 Operators",
+  "position": 20,
+  "link": {
+    "type": "generated-index",
+    "description": "Transform, combine, aggregate, and more"
+  }
+}
