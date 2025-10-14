@@ -1,0 +1,9 @@
+
+templates:
+  - path: ./licenses/header.apache.txt
+    include: (?i)\.go$
+    exclude: ^ee/|^examples/ee-
+  - path: ./licenses/header.ee.txt
+    include: ^ee/.*\.go$
+  - path: ./licenses/header.ee.txt
+    include: ^examples/ee-.*\.go$
