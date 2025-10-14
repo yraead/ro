@@ -1,5 +1,5 @@
 ---
-title: 🔁 iter vs ro
+title: iter vs ro
 description: Compare Go's iter package vs samber/ro reactive streams
 sidebar_position: 4
 ---
@@ -496,8 +496,8 @@ Go's `iter` package is excellent for synchronous iteration and sequences, while 
 
 :::tip Learn More
 
-- Explore [Observable basics](./core/observable) for reactive concepts
-- Learn about [backpressure](./glossary#Backpressure) in reactive systems
-- Compare with [Go channels](./channels-vs-ro) for another concurrency approach
+- Explore [Observable basics](../core/observable) for reactive concepts
+- Learn about [backpressure](../glossary#Backpressure) in reactive systems
+- Compare with [Go channels](../comparison/channels-vs-ro) for another concurrency approach
 
 :::

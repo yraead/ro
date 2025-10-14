@@ -6,7 +6,7 @@
 [![GoDoc](https://godoc.org/github.com/samber/ro?status.svg)](https://pkg.go.dev/github.com/samber/ro)
 ![Build Status](https://github.com/samber/ro/actions/workflows/test.yml/badge.svg)
 [![Go report](https://goreportcard.com/badge/github.com/samber/ro)](https://goreportcard.com/report/github.com/samber/ro)
-[![Coverage](https://img.shields.io/codecov/c/github/samber/ro)](https://codecov.io/gh/samber/ro)
+[![Coverage](https://img.shields.io/codecov/c/github/samber/ro)](https://app.codecov.io/gh/samber/ro)
 [![Contributors](https://img.shields.io/github/contributors/samber/ro)](https://github.com/samber/ro/graphs/contributors)
 
 > A *Go* implementation of the [ReactiveX](https://reactivex.io/) spec.
@@ -45,9 +45,9 @@ Both libraries have `Map()`, `Filter()`... helpers. How are they different?
 | **Size**           | finite sequence             | infinite stream                                          |
 | **Flow control**   | pull-based (iterators)      | push-based                                               |
 
-`lo` is a bunch of helpers for looping across maps, slices...
+`lo` is a bunch of helpers for looping across finite sequences (maps, slices...)
 
-`ro` is focused on data processing of event-driven applications.
+`ro` is focused on processing of infinite data streams in event-driven applications.
 
 **Why this name?**
 
@@ -85,6 +85,8 @@ Now you discovered the paradigm, follow the documentation and turn reactive: [ðŸ
 
 ## Core package
 
+Full documentation [here](https://ro.samber.dev/docs/operator).
+
 The `ro` library provides all basic operators:
 - **Creation operators**: The data source, usually the first argument of `ro.Pipe`
 - **Chainable operators**: They filter, validate, transform, enrich... messages
@@ -101,6 +103,8 @@ The `ro` library provides all basic operators:
 ## Plugins
 
 The `ro` library provides a rich ecosystem of plugins for various use cases:
+
+Full documentation [here](https://ro.samber.dev/docs/plugins).
 
 ### Data Manipulation
 - **Bytes** (`plugins/bytes`) - String and byte slice manipulation operators
