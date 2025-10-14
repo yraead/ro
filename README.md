@@ -25,7 +25,7 @@ The purpose of Reactive Programming is to simplify the development of event-driv
 
 ----
 
-![image](https://github.com/user-attachments/assets/60a8c896-48c5-4228-a50b-f80ae7c2b9a7)
+![cover](https://github.com/user-attachments/assets/60a8c896-48c5-4228-a50b-f80ae7c2b9a7)
 
 **See also:**
 
@@ -178,14 +178,14 @@ See the [examples](./examples) directory for complete working examples:
 Check the [contribution guide](https://ro.samber.dev/docs/contributing).
 
 - Ping me on Twitter [@samuelberthe](https://twitter.com/samuelberthe) (DMs, mentions, whatever :))
-- Fork the [project](https://github.com/samber/lo)
-- Fix [open issues](https://github.com/samber/lo/issues) or request new features
+- Fork the [project](https://github.com/samber/ro)
+- Fix [open issues](https://github.com/samber/ro/issues) or request new features
 
 Don't hesitate ;)
 
 ## 👤 Contributors
 
-![Contributors](https://contrib.rocks/image?repo=samber/lo)
+![Contributors](https://contrib.rocks/image?repo=samber/ro)
 
 ## 💫 Show your support
 
