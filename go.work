@@ -1,0 +1,79 @@
+go 1.18
+
+//
+// Base library
+//
+use .
+
+//
+// Plugins
+//
+use (
+	./plugins/bytes
+	// Commented out because requires go>=1.20
+	// ./plugins/cron
+	./plugins/encoding/base64
+	./plugins/encoding/csv
+	./plugins/encoding/gob
+	./plugins/encoding/json
+	// Commented out because requires go>=1.25
+	// ./plugins/encoding/json/v2
+	./plugins/fsnotify
+	./plugins/http/client
+	// Commented out because requires go>=1.23
+	// ./plugins/hyperloglog
+	./plugins/io
+	// Commented out because requires go>=1.23
+	// ./plugins/iter
+	./plugins/observability/log
+	./plugins/observability/logrus
+	// Commented out because requires go>=1.21
+	// ./plugins/observability/sentry
+	// Commented out because requires go>=1.21
+	// ./plugins/observability/slog
+	// Commented out because requires go>=1.19
+	// ./plugins/observability/zap
+	./plugins/observability/zerolog
+	// Commented out because requires go>=1.21
+	// ./plugins/samber/oops
+	// Commented out because requires go>=1.22
+	// ./plugins/samber/hot
+	./plugins/ozzo/ozzo-validation
+	./plugins/proc
+	./plugins/ratelimit/native
+	./plugins/ratelimit/ulule
+	./plugins/regexp
+	./plugins/samber/psi
+	./plugins/signal
+	./plugins/sort
+	./plugins/strconv
+	./plugins/strings
+	./plugins/template
+	./plugins/testify
+	./plugins/websocket/client
+)
+
+//
+// Enterprise Edition
+//
+// ./ee
+// ./ee/plugins/otel
+use ./ee/plugins/prometheus
+
+//
+// Examples
+//
+use (
+	./examples/connectable
+	./examples/distributed-websocket-gateway
+	// Commented out because requires go>=1.23
+	// ./examples/ee-otel-log
+	// Commented out because requires go>=1.23
+	// ./examples/ee-otel-metrics
+	// Commented out because requires go>=1.23
+	// ./examples/ee-otel-tracing
+	./examples/ee-prometheus
+	./examples/parallel-api-requests
+	./examples/sql-to-csv
+	./examples/stock-price-enrichment
+)
