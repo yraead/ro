@@ -141,6 +141,10 @@ Designed for high-throughput scenarios:
 
 :::
 
+## Why this name?
+
+I wanted to name it `$o`, but I think Go is not ready for special characters in package name 😁. `ro` is a *short name*, similar to `rx` and no Go package uses this name.
+
 ## When to Use ro?
 
 `ro` excels in scenarios involving:

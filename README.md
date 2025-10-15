@@ -33,25 +33,9 @@ The purpose of Reactive Programming is to simplify the development of event-driv
 - [samber/do](https://github.com/samber/do): A dependency injection toolkit based on Go 1.18+ Generics
 - [samber/mo](https://github.com/samber/mo): Monads based on Go 1.18+ Generics (Option, Result, Either...)
 
-**`samber/lo` vs `samber/ro` ?**
-
-Both libraries have `Map()`, `Filter()`... helpers. How are they different?
-
-|                    | `samber/lo`                 | `samber/ro`                                              |
-| ------------------ | --------------------------- | -------------------------------------------------------- |
-| **Usage**          | loop over in-memory objects | manipulate event driven objects, produced asynchronously |
-| **Data structure** | slices, maps, iterator...   | stream, observables, observers                           |
-| **Model**          | synchronous                 | asynchronous                                             |
-| **Size**           | finite sequence             | infinite stream                                          |
-| **Flow control**   | pull-based (iterators)      | push-based                                               |
-
-`lo` is a bunch of helpers for looping across finite sequences (maps, slices...)
-
-`ro` is focused on processing of infinite data streams in event-driven applications.
-
-**Why this name?**
-
-I wanted to name it `$o`, but I think Go is not ready for special characters in package name 😁. `ro` is a *short name*, similar to `rx` and no Go package uses this name.
+What makes it different from **samber/lo**?
+- lo: synchronous helpers across finite sequences (maps, slices...)
+- ro: processing of infinite data streams for event-driven scenarios
 
 ## The Reactive Programming paradigm
 
