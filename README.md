@@ -25,7 +25,7 @@ The purpose of Reactive Programming is to simplify the development of event-driv
 
 ----
 
-![cover](https://github.com/user-attachments/assets/60a8c896-48c5-4228-a50b-f80ae7c2b9a7)
+![cover](/docs/static/img/cover.png)
 
 **See also:**
 
