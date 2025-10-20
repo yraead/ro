@@ -21,7 +21,7 @@ updates:
     schedule:
       interval: monthly
     ignore:
-      - dependency-name: '*'
+      - dependency-name: '\*'
         update-types: ["version-update:semver-patch"]
     groups:
       docusaurus:
