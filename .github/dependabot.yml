@@ -4,24 +4,21 @@ updates:
     directory: /
     schedule:
       interval: monthly
+
   - package-ecosystem: gomod
-    directory: /
+    directories:
+      - /
+      - /ee/**
+      - /plugins/**
     schedule:
       interval: weekly
-  - package-ecosystem: gomod
-    directory: /ee/**
-    schedule:
-      interval: weekly
-  - package-ecosystem: gomod
-    directory: /plugins/**
-    schedule:
-      interval: weekly
+
   - package-ecosystem: npm
     directory: /docs
     schedule:
       interval: monthly
     ignore:
-      - dependency-name: '\*'
+      - dependency-name: '*'
         update-types: ["version-update:semver-patch"]
     groups:
       docusaurus:
