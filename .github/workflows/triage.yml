@@ -44,13 +44,19 @@ jobs:
           if [ "${{ github.event_name }}" = "issues" ]; then
             echo "NBR=${{ github.event.issue.number }}" >> $GITHUB_OUTPUT
             echo "TITLE=${{ github.event.issue.title }}" >> $GITHUB_OUTPUT
-            echo "BODY=${{ github.event.issue.body }}" >> $GITHUB_OUTPUT
+            {
+              echo -n "BODY="
+              echo '${{ github.event.issue.body }}' | sed ':a;N;$!ba;s/\n/\\n/g'
+            } >> $GITHUB_OUTPUT
             echo "AUTHOR=${{ github.event.issue.user.login }}" >> $GITHUB_OUTPUT
             echo "TYPE=issue" >> $GITHUB_OUTPUT
           elif [ "${{ github.event_name }}" = "pull_request" ]; then
             echo "NBR=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
             echo "TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
-            echo "BODY=${{ github.event.pull_request.body }}" >> $GITHUB_OUTPUT
+            {
+              echo -n "BODY="
+              echo '${{ github.event.pull_request.body }}' | sed ':a;N;$!ba;s/\n/\\n/g'
+            } >> $GITHUB_OUTPUT
             echo "AUTHOR=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
             echo "TYPE=pull_request" >> $GITHUB_OUTPUT
           fi
