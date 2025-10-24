@@ -92,7 +92,7 @@ A strategy to handle situations where data is produced faster than it can be con
 
 :::
 
-See [Observer vs Go Channels](./core/observer#Observer-vs-Go-Channels) for backpressure implementation details.
+See [backpressure](./core/backpressure) implementation details.
 
 ## Operator
 
