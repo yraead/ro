@@ -1,5 +1,5 @@
 ---
-title: 🧠 Memory Leaks
+title: Memory Leaks
 description: Detect, prevent, and fix memory leaks in reactive streams
 sidebar_position: 5
 ---

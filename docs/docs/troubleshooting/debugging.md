@@ -1,5 +1,5 @@
 ---
-title: 🔍 Debugging Techniques
+title: Debugging Techniques
 description: Systematic approaches to debugging reactive streams
 sidebar_position: 3
 ---

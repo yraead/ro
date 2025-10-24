@@ -1,5 +1,5 @@
 ---
-title: 🔄 Concurrency Issues
+title: Concurrency Issues
 description: Understanding and resolving race conditions, deadlocks, and synchronization problems
 sidebar_position: 6
 ---

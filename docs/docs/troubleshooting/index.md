@@ -1,5 +1,5 @@
 ---
-title: 🔧 Troubleshooting
+title: Introduction
 description: Diagnose and resolve common issues with samber/ro
 sidebar_position: 1
 ---

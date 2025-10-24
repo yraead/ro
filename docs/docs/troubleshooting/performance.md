@@ -1,5 +1,5 @@
 ---
-title: ⚡ Performance Issues
+title: Performance Issues
 description: Identify and resolve performance bottlenecks
 sidebar_position: 4
 ---

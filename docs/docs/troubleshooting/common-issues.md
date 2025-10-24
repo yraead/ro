@@ -1,5 +1,5 @@
 ---
-title: 🐛 Common Issues
+title: Common Issues
 description: Solutions to frequently encountered problems
 sidebar_position: 2
 ---
