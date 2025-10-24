@@ -130,7 +130,7 @@ A data flow model where producers push updates to consumers automatically. This 
 
 :::
 
-Compare with [Pull Model](#Pull-Model) and see [Observer vs Go Channels](./core/observer#Observer-vs-Go-Channels) for practical implementation.
+Compare with [Pull Model](#Pull-Model) and see [Observer](./core/observer) for practical implementation.
 
 ## Pull Model
 A model where consumers request data from producers when needed.
