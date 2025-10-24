@@ -53,31 +53,31 @@ We hate breaking changes, so better think twice ;)
 Example:
 ```go
 func MapIWithContext[T, R any](project func(ctx context.Context, item T, index int64) (context.Context, R)) func(Observable[T]) Observable[R] {
-	return func(source Observable[T]) Observable[R] {
+    return func(source Observable[T]) Observable[R] {
         // This context has been provided by the downstream subscriber
-		return NewUnsafeObservableWithContext(func(subscriberCtx context.Context, destination Observer[R]) Teardown {
-			i := int64(0)
+        return NewUnsafeObservableWithContext(func(subscriberCtx context.Context, destination Observer[R]) Teardown {
+            i := int64(0)
 
-			sub := source.SubscribeWithContext(
+            sub := source.SubscribeWithContext(
                 // Subscribe to upstream with context received from downstream
-				subscriberCtx,
-				NewObserverWithContext(
-					func(ctx context.Context, value T) {
+                subscriberCtx,
+                NewObserverWithContext(
+                    func(ctx context.Context, value T) {
                         // The callback receives a context and return a new one (the same ?).
-						newCtx, result := project(ctx, value, i)
+                        newCtx, result := project(ctx, value, i)
                         // Use .NextWithContext(...) instead of .Next(...)
-						destination.NextWithContext(newCtx, result)
+                        destination.NextWithContext(newCtx, result)
 
-						i++
-					},
-					destination.ErrorWithContext,
-					destination.CompleteWithContext,
-				),
-			)
+                        i++
+                    },
+                    destination.ErrorWithContext,
+                    destination.CompleteWithContext,
+                ),
+            )
 
-			return sub.Unsubscribe
-		})
-	}
+            return sub.Unsubscribe
+        })
+    }
 }
 ```
 
