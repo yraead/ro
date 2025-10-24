@@ -81,9 +81,9 @@ Each subscription creates a new state. The state must be declard in the Observab
 ```go
 func Scan[T, R any](initial R, accumulator func(R, T) R) func(Observable[T]) Observable[R] {
     return func(source Observable[T]) Observable[R] {
-		    return NewUnsafeObservable(func(destination Observer[R]) Teardown {
+        return NewUnsafeObservable(func(destination Observer[R]) Teardown {
             // State 👇
-			      state := initial
+            state := initial
 
             sub := source.Subscribe(ro.NewObserver(
                 func(value T) {
@@ -95,8 +95,8 @@ func Scan[T, R any](initial R, accumulator func(R, T) R) func(Observable[T]) Obs
             ))
 
             return sub.Unsubscribe
-	      })
-	  }
+        })
+    }
 }
 ```
 
@@ -108,27 +108,27 @@ Unsafe observables are much faster but offer less protection against race condit
 // Note: This is a creation operator, not chainable operator
 func AsyncHTTPRequest(req *http.Request) ro.Observable[*http.Response] {
     // A "safe" observable prevents concurrent message passing through destination.Next()
-	return ro.NewSafeObservable(func(destination ro.Observer[*http.Response]) ro.Teardown {
-		ctx, cancel := context.WithCancel(req.Context())
+    return ro.NewSafeObservable(func(destination ro.Observer[*http.Response]) ro.Teardown {
+        ctx, cancel := context.WithCancel(req.Context())
 
-		go func() {
-			req = req.WithContext(ctx)
+        go func() {
+            req = req.WithContext(ctx)
 
-			res, err := http.DefaultClient.Do(req)
-			if err != nil {
-				destination.ErrorWithContext(ctx, err)
-				return
-			}
+            res, err := http.DefaultClient.Do(req)
+            if err != nil {
+                destination.ErrorWithContext(ctx, err)
+                return
+            }
 
-			destination.NextWithContext(ctx, res)
-			destination.CompleteWithContext(ctx)
-		}()
+            destination.NextWithContext(ctx, res)
+            destination.CompleteWithContext(ctx)
+        }()
 
         // the request will be canceled on early unsubscription
-		return func () {
+        return func () {
             cancel()
-    }
-	})
+        }
+    })
 }
 ```
 
@@ -136,7 +136,7 @@ func AsyncHTTPRequest(req *http.Request) ro.Observable[*http.Response] {
 // Note: This is a creation operator, not chainable operator
 func SyncHTTPRequest(req *http.Request) ro.Observable[*http.Response] {
     // An "unsafe" observable is not protected against concurrent message passing through destination.Next()
-	return ro.NewUnsafeObservable(func(destination ro.Observer[*http.Response]) ro.Teardown {
+    return ro.NewUnsafeObservable(func(destination ro.Observer[*http.Response]) ro.Teardown {
         req = req.WithContext(context.Background())
 
         res, err := http.DefaultClient.Do(req)
@@ -223,31 +223,31 @@ func WithTimeout[T any](timeout time.Duration) func(ro.Observable[T]) ro.Observa
 Example:
 ```go
 func MapIWithContext[T, R any](project func(ctx context.Context, item T, index int64) (context.Context, R)) func(Observable[T]) Observable[R] {
-	return func(source Observable[T]) Observable[R] {
+    return func(source Observable[T]) Observable[R] {
         // This context has been provided by the downstream subscriber
-		return NewUnsafeObservableWithContext(func(subscriberCtx context.Context, destination Observer[R]) Teardown {
-			i := int64(0)
+        return NewUnsafeObservableWithContext(func(subscriberCtx context.Context, destination Observer[R]) Teardown {
+            i := int64(0)
 
-			sub := source.SubscribeWithContext(
+            sub := source.SubscribeWithContext(
                 // Subscribe to upstream with context received from downstream
-				subscriberCtx,
-				NewObserverWithContext(
-					func(ctx context.Context, value T) {
+                subscriberCtx,
+                NewObserverWithContext(
+                    func(ctx context.Context, value T) {
                         // The callback receives a context and return a new one (the same ?).
-						newCtx, result := project(ctx, value, i)
+                        newCtx, result := project(ctx, value, i)
                         // Use .NextWithContext(...) instead of .Next(...)
-						destination.NextWithContext(newCtx, result)
+                        destination.NextWithContext(newCtx, result)
 
-						i++
-					},
-					destination.ErrorWithContext,
-					destination.CompleteWithContext,
-				),
-			)
+                        i++
+                    },
+                    destination.ErrorWithContext,
+                    destination.CompleteWithContext,
+                ),
+            )
 
-			return sub.Unsubscribe
-		})
-	}
+            return sub.Unsubscribe
+        })
+    }
 }
 ```
 
